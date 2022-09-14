@@ -2,6 +2,7 @@ package Main;
 
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.time.Month;
@@ -10,23 +11,24 @@ import static Main.Appt.getAllAppts;
 
 /** Defines structure of the "ThreeTable" table used in three areas on the right side of the reports tab. */
 public class ThreeTable {
-    private String name;
-    public String getName() { return name; }
-    public void setName(String str) { this.name = new String(str); }
+    private SimpleStringProperty name;
+    public String getName () { return name.get(); }
+    public void setName (String str) { this.name = new SimpleStringProperty(str); }
 
-    private String type;
-    public String getType() { return type; }
-    public void setType(String str) { this.type = new String(str); }
+    private SimpleStringProperty type;
+    public String getType () { return type.get(); }
+    public void setType (String str) { this.type = new SimpleStringProperty(str); }
 
     private SimpleIntegerProperty total;
+    public Integer getTotal() { return total.get(); }
     public void setTotal(int i) { this.total = new SimpleIntegerProperty(i); }
 
     /**
      * ThreeTable constructor.
      */
     public ThreeTable(String name, String type, int total) {
-        this.name = name;
-        this.type = type;
+        this.name = new SimpleStringProperty(name);
+        this.name = new SimpleStringProperty(type);
         this.total = new SimpleIntegerProperty(total);
     }
 
