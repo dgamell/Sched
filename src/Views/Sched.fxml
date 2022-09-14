@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1426.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SchedController">
+    <tabs>
+        <Tab fx:id="apptTab" text="Appointments">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TableView fx:id="appts" layoutX="14.0" layoutY="14.0" prefHeight="542.0" prefWidth="1000.0">
+                            <columns>
+                                <TableColumn id="apptID" fx:id="apptID" prefWidth="30.0" text="ID" />
+                                <TableColumn id="title" fx:id="title" prefWidth="100.0" text="Title" />
+                                <TableColumn id="desc" fx:id="desc" prefWidth="100.0" text="Description" />
+                                <TableColumn id="type" fx:id="type" prefWidth="100.0" text="Type" />
+                                <TableColumn id="loc" fx:id="loc" prefWidth="100.0" text="Location" />
+                                <TableColumn id="start" fx:id="start" prefWidth="110.0" text="Start" />
+                                <TableColumn id="end" fx:id="end" prefWidth="110.0" text="End" />
+                                <TableColumn id="userID" fx:id="user" prefWidth="65.0" text="User" />
+                        <TableColumn id="apptID" fx:id="userFKID" prefWidth="30.0" text="ID" />
+                                <TableColumn id="custID" fx:id="cust" prefWidth="125.0" text="Customer" />
+                        <TableColumn id="apptID" fx:id="custFKID" prefWidth="30.0" text="ID" />
+                                <TableColumn id="contactID" fx:id="contact" prefWidth="100.0" text="Contact" />
+                            </columns>
+                        </TableView>
+                        <RadioButton fx:id="showAll" layoutX="1098.0" layoutY="15.0" mnemonicParsing="false" onAction="#showAll" selected="true" text="Show All">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="radio" />
+                            </toggleGroup>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton fx:id="month" layoutX="1196.0" layoutY="15.0" mnemonicParsing="false" onAction="#month" text="Month" toggleGroup="$radio">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton fx:id="week" layoutX="1285.0" layoutY="15.0" mnemonicParsing="false" onAction="#week" text="Week" toggleGroup="$radio">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <Label layoutX="1040.0" layoutY="51.0" text="Title:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1237.0" layoutY="51.0" text="ID:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="82.0" text="Description:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="112.0" text="Type:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="144.0" text="Location:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="174.0" text="Start:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="207.0" text="End:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="240.0" text="User:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="270.0" text="Customer:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1040.0" layoutY="300.0" text="Contact:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="titleField" layoutX="1083.0" layoutY="49.0" />
+                        <TextField fx:id="apptIDField" editable="false" layoutX="1264.0" layoutY="49.0" prefHeight="25.0" prefWidth="40.0" />
+                        <TextField fx:id="descField" layoutX="1122.0" layoutY="80.0" prefHeight="25.0" prefWidth="242.0" />
+                        <TextField fx:id="typeField" layoutX="1078.0" layoutY="110.0" prefHeight="25.0" prefWidth="286.0" />
+                        <TextField fx:id="locField" layoutX="1100.0" layoutY="142.0" prefHeight="25.0" prefWidth="264.0" />
+                        <DatePicker fx:id="startDateField" layoutX="1085.0" layoutY="172.0" />
+                        <ComboBox fx:id="startTimeField" layoutX="1266.0" layoutY="172.0" prefHeight="25.0" prefWidth="100.0" />
+                        <DatePicker fx:id="endDateField" layoutX="1085.0" layoutY="205.0" />
+                        <ComboBox fx:id="endTimeField" layoutX="1266.0" layoutY="205.0" prefHeight="25.0" prefWidth="100.0" />
+                        <TextField fx:id="userFKIDField" editable="false" layoutX="1305.0" layoutY="240.0" prefHeight="25.0" prefWidth="25.0" />
+                        <TextField fx:id="custFKIDField" editable="false" layoutX="1305.0" layoutY="270.0" prefHeight="25.0" prefWidth="25.0" />
+                        <ComboBox fx:id="contactField" layoutX="1120.0" layoutY="300.0" prefHeight="25.0" prefWidth="150.0" />
+                        <Button fx:id="apptUpdate" layoutX="1183.0" layoutY="369.0" mnemonicParsing="false" onAction="#apptAddUpdate" text="Add/Update Appointment" />
+                        <Button fx:id="apptDelete" layoutX="1038.0" layoutY="369.0" mnemonicParsing="false" onAction="#deleteSelectedAppt" text="Delete" visible="false" />
+                        <Button fx:id="apptClear" layoutX="1098.0" layoutY="369.0" mnemonicParsing="false" onAction="#clearApptFields" text="Clear Fields" />
+                  <Label fx:id="apptDeletedText" layoutX="1043.0" layoutY="335.0" text="Appointment has been deleted." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="apptAddedText" layoutX="1043.0" layoutY="335.0" text="Appointment has been added." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="apptUpdatedText" layoutX="1043.0" layoutY="335.0" text="Appointment has been updated." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="contactFKIDField" editable="false" layoutX="1305.0" layoutY="300.0" prefHeight="25.0" prefWidth="25.0" />
+                  <ComboBox fx:id="custField" layoutX="1120.0" layoutY="270.0" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="userField" layoutX="1120.0" layoutY="240.0" prefHeight="25.0" prefWidth="150.0" />
+                  <Label layoutX="1280.0" layoutY="240.0" text="ID:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1280.0" layoutY="270.0" text="ID:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1280.0" layoutY="300.0" text="ID:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="startBadText" layoutX="1043.0" layoutY="335.0" text="Start time falls outside of business hours." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="endBadText" layoutX="1043.0" layoutY="335.0" text="End time falls outside of business hours." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="apptOverlapText" layoutX="1043.0" layoutY="335.0" text="Times overlap with customer's other appointment." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="custTab" text="Customers">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TableView fx:id="custs" layoutX="14.0" layoutY="14.0" prefHeight="542.0" prefWidth="1000.0">
+                            <columns>
+                                <TableColumn id="cust" fx:id="custID" prefWidth="50.0" text="ID" />
+                                <TableColumn id="custName" fx:id="custName" prefWidth="125.0" text="Customer" />
+                                <TableColumn id="phone" fx:id="phone" prefWidth="125.0" text="Phone" />
+                                <TableColumn id="addr" fx:id="addr" prefWidth="200.0" text="Address" />
+                                <TableColumn id="zip" fx:id="zip" prefWidth="75.0" text="Zip Code" />
+                                <TableColumn id="divID" fx:id="territory" prefWidth="125.0" text="Territory" />
+                                <TableColumn id="country" fx:id="country" prefWidth="125.0" text="Country" />
+                        <TableColumn fx:id="divID" prefWidth="75.0" text="Division ID" />
+                        <TableColumn fx:id="countryID" prefWidth="75.0" text="Country ID" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="1031.0" layoutY="51.0" text="Name:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1289.0" layoutY="51.0" text="ID:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1031.0" layoutY="82.0" text="Phone:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1033.0" layoutY="112.0" text="Address:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1036.0" layoutY="144.0" text="Zip Code:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1032.0" layoutY="217.0" text="Territory:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="1033.0" layoutY="184.0" text="Country:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="custNameField" layoutX="1084.0" layoutY="49.0" prefHeight="25.0" prefWidth="196.0" />
+                        <TextField fx:id="custIDField" editable="false" layoutX="1314.0" layoutY="49.0" prefHeight="25.0" prefWidth="44.0" />
+                        <TextField fx:id="phoneField" layoutX="1110.0" layoutY="80.0" prefHeight="25.0" prefWidth="254.0" />
+                        <TextField fx:id="addrField" layoutX="1094.0" layoutY="110.0" prefHeight="25.0" prefWidth="264.0" />
+                        <TextField fx:id="zipField" layoutX="1100.0" layoutY="142.0" prefHeight="25.0" prefWidth="264.0" />
+                        <Button fx:id="custUpdate" layoutX="1191.0" layoutY="249.0" mnemonicParsing="false" onAction="#custAddUpdate" text="Add/Update Customer" />
+                        <Button fx:id="custDelete" layoutX="1034.0" layoutY="249.0" mnemonicParsing="false" onAction="#deleteSelectedCust" text="Delete" visible="false" />
+                        <Button fx:id="custClear" layoutX="1100.0" layoutY="249.0" mnemonicParsing="false" onAction="#clearCustFields" text="Clear Fields" />
+                  <Label fx:id="custDeletedText" layoutX="1038.0" layoutY="299.0" text="Customer has been deleted." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="custAddedText" layoutX="1038.0" layoutY="299.0" text="Customer has been added." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="custUpdatedText" layoutX="1038.0" layoutY="299.0" text="Customer has been updated." textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="countryIDField" editable="false" layoutX="1322.0" layoutY="182.0" prefWidth="42.0" />
+                  <TextField fx:id="divIDField" editable="false" layoutX="1322.0" layoutY="214.0" prefWidth="42.0" />
+                  <Label layoutX="1294.0" layoutY="183.0" text="ID:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1294.0" layoutY="216.0" text="ID:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="countryField" layoutX="1102.0" layoutY="182.0" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="territoryField" layoutX="1102.0" layoutY="214.0" prefHeight="25.0" prefWidth="150.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="reportTab" text="Reports">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="reportByContact" layoutX="14.0" layoutY="54.0" prefHeight="502.0" prefWidth="1000.0">
+                     <columns>
+                        <TableColumn id="apptID" fx:id="apptIDReport" prefWidth="30.0" text="ID" />
+                        <TableColumn id="title" fx:id="titleReport" prefWidth="100.0" text="Title" />
+                        <TableColumn id="desc" fx:id="descReport" prefWidth="100.0" text="Description" />
+                        <TableColumn id="type" fx:id="typeReport" prefWidth="100.0" text="Type" />
+                        <TableColumn id="loc" fx:id="locReport" prefWidth="100.0" text="Location" />
+                        <TableColumn id="start" fx:id="startReport" prefWidth="110.0" text="Start" />
+                        <TableColumn id="end" fx:id="endReport" prefWidth="110.0" text="End" />
+                        <TableColumn id="userID" fx:id="userReport" prefWidth="65.0" text="User" />
+                        <TableColumn id="apptID" fx:id="userFKIDReport" prefWidth="30.0" text="ID" />
+                        <TableColumn id="custID" fx:id="custReport" prefWidth="125.0" text="Customer" />
+                        <TableColumn id="apptID" fx:id="custFKIDReport" prefWidth="30.0" text="ID" />
+                        <TableColumn id="contactID" fx:id="contactReport" prefWidth="100.0" text="Contact" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="20.0" layoutY="20.0" text="All appointments for:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="reportContact" layoutX="163.0" layoutY="18.0" prefHeight="25.0" prefWidth="150.0" />
+                  <TableView fx:id="threeTable" layoutX="1048.0" layoutY="54.0" prefHeight="291.0" prefWidth="340.0">
+                    <columns>
+                      <TableColumn fx:id="monthCol" prefWidth="120.0" text="Month" />
+                        <TableColumn fx:id="typeCol" prefWidth="120.0" text="Type" />
+                      <TableColumn fx:id="totalCol" prefWidth="100.0" text="Total" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="reportByCust" layoutX="1048.0" layoutY="370.0" prefHeight="186.0" prefWidth="340.0">
+                     <columns>
+                        <TableColumn fx:id="customerTable" prefWidth="215.0" text="Customer" />
+                        <TableColumn fx:id="customerTotal" prefWidth="123.0" text="Total Appointments" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
