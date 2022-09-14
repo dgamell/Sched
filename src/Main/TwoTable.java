@@ -39,7 +39,7 @@ public class TwoTable {
     public static void populateAllCustomersTT() {
         allCustomersTT.clear();
         ObservableList<Appt> all = getAllAppts();
-        for (int j = 1; j < allCusts.size(); j++) {
+        for (int j = 0; j < allCusts.size(); j++) {
             TwoTable customer = new TwoTable("", 0);
             customer.setName(allCusts.get(j).getCustName());
             int count = 0;
