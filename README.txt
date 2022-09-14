@@ -123,7 +123,7 @@ Req. C:
 
 Req. D:
 
-	- In the root directory of the project will be a javadoc folder. Access index.html to begin browsing. The lambda expressions are mentioned in the comments where they occurred.
+	- In the root directory of the project will be a javadoc folder. Access index.html to begin browsing. The lambda expressions are mentioned in the comments where they occurred. Namely in /sched/javadoc/Controllers/SchedController.html and in /sched/javadoc/Main/Contact.html etc. 
 
 
 
