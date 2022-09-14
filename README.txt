@@ -26,7 +26,7 @@ Req. A:
 
 	- Click the run button.
 
-	- A message will be printed in the console to inform if a JDBC connection to the MySQL database was successful or not. If it was not successful, please make sure your database is running from your local machine (127.0.0.1) at port 3306, and that the username/password for it is sqlUser/passw0rd!
+	- A message will be printed in the console to inform if a JDBC connection to the MySQL database was successful or not. If it was not successful, please make sure your database is running from your local machine (127.0.0.1) at port 3306, and that the username/password for it is sqlUser/Passw0rd!
 
 
 

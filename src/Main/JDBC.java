@@ -15,7 +15,7 @@ public abstract class JDBC {
     private static final String fullUrl = protocol + vendor + address + dbase;
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String uname = "sqlUser";
-    private static final String pword = "passw0rd!";
+    private static final String pword = "Passw0rd!";
     public static Connection conn;
 
     /** Attempts to open a JDBC connection to the MySQL database. */
