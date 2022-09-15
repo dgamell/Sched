@@ -419,22 +419,22 @@ public class SchedController implements Initializable {
             appts.refresh();
 
             apptAddedText.setVisible(true);
-            fadeADT.setNode(apptAddedText);
-            fadeADT.setFromValue(1.0);
-            fadeADT.setToValue(0.0);
-            fadeADT.setCycleCount(1);
-            fadeADT.playFromStart();
+            fadeAAT.setNode(apptAddedText);
+            fadeAAT.setFromValue(1.0);
+            fadeAAT.setToValue(0.0);
+            fadeAAT.setCycleCount(1);
+            fadeAAT.playFromStart();
 
         } else {
             int overlap = checkOverlap(LocalDateTime.of(startDateField.getValue(), (LocalTime) startTimeField.getValue()), LocalDateTime.of(endDateField.getValue(), (LocalTime) endTimeField.getValue()), parseInt(custFKIDField.getText()), parseInt(apptIDField.getText()));
             if ( overlap > 0 ) {
                 apptOverlapText.setVisible(true);
                 apptOverlapText.setText("Times overlap with " + custField.getValue() + "'s appointment: #" + String.valueOf(overlap) + ".");
-                fadeAOT.setNode(apptOverlapText);
-                fadeAOT.setFromValue(1.0);
-                fadeAOT.setToValue(0.0);
-                fadeAOT.setCycleCount(1);
-                fadeAOT.playFromStart();
+                fadeAAT.setNode(apptOverlapText);
+                fadeAAT.setFromValue(1.0);
+                fadeAAT.setToValue(0.0);
+                fadeAAT.setCycleCount(1);
+                fadeAAT.playFromStart();
                 return;
             }
             for (int j = 0; j < getAllAppts().size(); j++) {

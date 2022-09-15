@@ -95,7 +95,8 @@ Req. A3d:
 
 
 Req. A3e:
-	- Select an existing appointment and change it to today's date and change the time to within fifteen minutes of now. Click update and then exit the application and re-run it. Log in as the same user you were before and you will be presented with a confirmation dialog listing all of the appointments you have upcoming within the next fifteen minutes.
+
+	- Select an existing appointment whose user field matches the one you logged in as. Change it to today's date and change the time to within fifteen minutes of now. Click update and then exit the application and re-run it. Log in as the same user you were before and you will be presented with a confirmation dialog listing all of the appointments you have upcoming within the next fifteen minutes.
 
 
 
