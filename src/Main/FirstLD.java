@@ -7,14 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /** Defines structure of the "FirstLD" table. */
-public class FirstLD {
-    private SimpleIntegerProperty ID;
-    public Integer getID () { return ID.get(); }
-    public void setID (int i) { this.ID = new SimpleIntegerProperty(i); }
-
-    private SimpleStringProperty name;
-    public String getName () { return name.get(); }
-    public void setName (String str) { this.name = new SimpleStringProperty(str); }
+public class FirstLD extends Data {
 
     private SimpleIntegerProperty countryID;
     public Integer getCountryID () { return countryID.get(); }

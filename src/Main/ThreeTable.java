@@ -11,13 +11,6 @@ import static Main.Appt.getAllAppts;
 
 /** Defines structure of the "ThreeTable" table used in three areas on the right side of the reports tab. Extends TwoTable. */
 public class ThreeTable extends TwoTable {
-    //private SimpleStringProperty name;
-    //public String getName () { return name.get(); }
-    //public void setName (String str) { this.name = new SimpleStringProperty(str); }
-
-    //private SimpleIntegerProperty total;
-    //public Integer getTotal() { return total.get(); }
-    //public void setTotal(int i) { this.total = new SimpleIntegerProperty(i); }
 
     private SimpleStringProperty type;
     public String getType () { return type.get(); }
@@ -27,7 +20,6 @@ public class ThreeTable extends TwoTable {
      * ThreeTable constructor.
      */
     public ThreeTable(String name, String type, int total) {
-        //super();
         this.name = new SimpleStringProperty(name);
         this.type = new SimpleStringProperty(type);
         this.total = new SimpleIntegerProperty(total);

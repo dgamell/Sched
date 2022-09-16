@@ -49,7 +49,7 @@ public class Main extends Application {
         FirstLD.populateUKTerritories();
         FirstLD.populateCanadaTerritories();
         Country.populateCountryNames();
-        User.populateUserNames();
+        User.populateNames();
         Contact.populateContactNames();
         JDBC.populateCustsTable();
         Cust.populateCustNames();

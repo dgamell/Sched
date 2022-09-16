@@ -26,11 +26,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 import Main.*;
-import static Main.JDBC.*;
 import static Main.Appt.*;
 import static Main.Cust.*;
 import static Main.TwoTable.*;
-import static Main.User.*;
 import static Main.Contact.*;
 
 
@@ -238,7 +236,7 @@ public class SchedController implements Initializable {
         startTimeField.setItems(times);
         endTimeField.setItems(times);
 
-        userField.setItems(allUserNames);
+        userField.setItems(User.getAllNames());
         custField.setItems(allCustNames);
         contactField.setItems(allContactNames);
         countryField.setItems(Country.allCountryNames);

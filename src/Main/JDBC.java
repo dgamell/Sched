@@ -250,7 +250,7 @@ public abstract class JDBC {
             String userName = rs.getString("user_name");
             String password = rs.getString("password");
             User newUser = new User(userID, userName, password);
-            User.addUser(newUser);
+            User.add(newUser);
         }
     }
 

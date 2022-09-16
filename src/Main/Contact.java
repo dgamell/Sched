@@ -7,14 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /** Defines structure of the "Contact" table. */
-public class Contact {
-    private SimpleIntegerProperty ID;
-    public Integer getID () { return ID.get(); }
-    public void setID (int i) { this.ID = new SimpleIntegerProperty(i); }
-
-    private SimpleStringProperty name;
-    public String getName () { return name.get(); }
-    public void setName (String str) { this.name = new SimpleStringProperty(str); }
+public class Contact extends Data {
 
     /** Contact constructor. */
     public Contact(Integer ID, String name) {

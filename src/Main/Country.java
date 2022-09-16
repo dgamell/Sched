@@ -7,14 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /** Defines structure of the "Country" table. */
-public class Country {
-    private SimpleIntegerProperty ID;
-    public Integer getID () { return ID.get(); }
-    public void setID (int i) { this.ID = new SimpleIntegerProperty(i); }
-
-    private SimpleStringProperty name;
-    public String getName () { return name.get(); }
-    public void setName (String str) { this.name = new SimpleStringProperty(str); }
+public class Country extends Data {
 
     /** Country constructor. */
     public Country(Integer ID, String Name) {

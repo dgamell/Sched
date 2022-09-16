@@ -81,7 +81,7 @@ public class LoginController implements Initializable {
             boolean incomplete = false;
             if ( userField.getText().isEmpty() ) { userField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { userField.setStyle(null); }
             if ( passField.getText().isEmpty() ) { passField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { passField.setStyle(null); }
-            if ( incomplete == true ) { return; }
+            if ( incomplete ) { return; }
 
             FileWriter fw = new FileWriter("login_activity.txt", true);
             PrintWriter pw = new PrintWriter(fw);
@@ -146,7 +146,7 @@ public class LoginController implements Initializable {
         language();
     }
 
-    /** Changes the login screen between english and french languages only. */
+    /** Changes the login screen between English and French languages only. */
     private void language() {
         ResourceBundle rb = ResourceBundle.getBundle("login", Locale.getDefault());
         if (l == "en_US") { rb = ResourceBundle.getBundle("login_en"); }
