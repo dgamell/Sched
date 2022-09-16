@@ -12,10 +12,15 @@ import static java.lang.Integer.parseInt;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
@@ -84,6 +89,25 @@ public class SchedController implements Initializable {
     @FXML private TableView<TwoTable> reportByCust;
     @FXML private TableColumn<TwoTable, String> customerTable = new TableColumn<TwoTable, String>();
     @FXML private TableColumn<TwoTable, Integer> customerTotal = new TableColumn<TwoTable, Integer>();
+
+    @FXML private Button resetApptSearch;
+    @FXML private TextField titleSearch;
+    @FXML private TextField descSearch;
+    @FXML private TextField typeSearch;
+    @FXML private TextField locSearch;
+    @FXML private TextField startSearch;
+    @FXML private TextField endSearch;
+    @FXML private TextField userSearch;
+    @FXML private TextField custSearch;
+    @FXML private TextField contactSearch;
+
+    @FXML private Button resetCustSearch;
+    @FXML private TextField custNameSearch;
+    @FXML private TextField phoneSearch;
+    @FXML private TextField addrSearch;
+    @FXML private TextField zipSearch;
+    @FXML private TextField territorySearch;
+    @FXML private TextField countrySearch;
 
     @FXML private TextField apptIDField;
     @FXML private TextField titleField;
@@ -206,10 +230,10 @@ public class SchedController implements Initializable {
             times.add(adjustedTime);
         }
 
-        convertToUTC(LocalDateTime.now());
-        convertFromUTC(LocalDateTime.now());
-        convertToEST(LocalDateTime.now());
-        convertFromEST(LocalDateTime.now());
+        //convertToUTC(LocalDateTime.now());
+        //convertFromUTC(LocalDateTime.now());
+        //convertToEST(LocalDateTime.now());
+        //convertFromEST(LocalDateTime.now());
 
         startTimeField.setItems(times);
         endTimeField.setItems(times);
@@ -315,7 +339,70 @@ public class SchedController implements Initializable {
                 }
             }
         } );
+
+        titleSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                titleSearch();
+            } } });
+        descSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                    descSearch();
+            } } });
+        typeSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                typeSearch();
+            } } });
+        locSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                locSearch();
+            } } });
+        startSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                startSearch();
+            } } });
+        endSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                endSearch();
+            } } });
+        userSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                userSearch();
+            } } });
+        custSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                custSearch();
+            } } });
+        contactSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                contactSearch();
+            } } });
+        custNameSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                custNameSearch();
+            } } });
+        phoneSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                phoneSearch();
+            } } });
+        addrSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                addrSearch();
+            } } });
+        zipSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                zipSearch();
+            } } });
+        territorySearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                territorySearch();
+            } } });
+        countrySearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent ke) { if (ke.getCode().equals(KeyCode.ENTER)) {
+                countrySearch();
+            } } });
+
     }
+
 
     /** Shows all appointments when the respective radio button is clicked.
      *
@@ -350,7 +437,7 @@ public class SchedController implements Initializable {
 
 
     /** Populates the appointments input fields with whatever row has been clicked on in the table. */
-    public void populateApptSelected() {
+    private void populateApptSelected() {
         Appt apptSelected = getApptSelected();
         if (apptSelected == null) { return; }
         apptIDField.setText(apptSelected.getApptID().toString());
@@ -476,7 +563,7 @@ public class SchedController implements Initializable {
      *
      * @return true if edits are detected, false if not.
      * */
-    public boolean checkApptChanges() {
+    private boolean checkApptChanges() {
         Appt apptSelected = getApptSelected();
         if (apptSelected == null) { return false; }
         boolean edited = false;
@@ -555,7 +642,7 @@ public class SchedController implements Initializable {
      *
      * @param appt
      * */
-    public void setApptSelection(Appt appt) {
+    private void setApptSelection(Appt appt) {
         for (int j = 0; j < getAllAppts().size(); j++) {
             if (appt == getAllAppts().get(j)) {
                 appts.getSelectionModel().select(j);
@@ -572,7 +659,7 @@ public class SchedController implements Initializable {
      *
      * @return true if yes, false if no.
      * */
-    public boolean discardApptChanges() {
+    private boolean discardApptChanges() {
         boolean changed = checkApptChanges();
         if ( changed == true ) {
             Alert conf = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you wish to discard your changes?", ButtonType.NO, ButtonType.YES);
@@ -586,7 +673,7 @@ public class SchedController implements Initializable {
      *
      * @return true if any fields are empty, false if none are empty.
      * */
-    public boolean areApptFieldsEmpty() {
+    private boolean areApptFieldsEmpty() {
         boolean incomplete = false;
         if ( titleField.getText().isEmpty() ) { titleField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { titleField.setStyle(null); }
         if ( descField.getText().isEmpty() ) { descField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { descField.setStyle(null); }
@@ -609,7 +696,7 @@ public class SchedController implements Initializable {
     }
 
     /** Makes all input fields no longer have a red border around them. */
-    public void unredApptFields() {
+    private void unredApptFields() {
         titleField.setStyle(null);
         descField.setStyle(null);
         typeField.setStyle(null);
@@ -630,7 +717,7 @@ public class SchedController implements Initializable {
      *
      * @return bad if time falls outside business hours, good if not.
      * */
-    public String checkStartTime() {
+    private String checkStartTime() {
         if ( startTimeField.getValue() == null ) return "bad";
         LocalTime convertTime = LocalTime.now();
         convertTime = LocalDateTime.of(LocalDate.now(), (LocalTime) startTimeField.getValue()).atZone(ZoneId.of(ZoneId.systemDefault().toString())).withZoneSameInstant(ZoneId.of("America/New_York")).toLocalTime();
@@ -652,7 +739,7 @@ public class SchedController implements Initializable {
      *
      * @return bad if time falls outside business hours, good if not.
      * */
-    public String checkEndTime() {
+    private String checkEndTime() {
         if ( endTimeField.getValue() == null ) return "bad";
         LocalTime convertTime = LocalTime.now();
         convertTime = LocalDateTime.of(LocalDate.now(), (LocalTime) endTimeField.getValue()).atZone(ZoneId.of(ZoneId.systemDefault().toString())).withZoneSameInstant(ZoneId.of("America/New_York")).toLocalTime();
@@ -678,7 +765,7 @@ public class SchedController implements Initializable {
      * @param appt id
      * @return total number of overlapping appointments.
      * */
-    public int checkOverlap(LocalDateTime start, LocalDateTime end, int cust, int appt) {
+    private int checkOverlap(LocalDateTime start, LocalDateTime end, int cust, int appt) {
         ObservableList<Appt> all = getAllAppts();
         LocalDateTime testStart = null;
         LocalDateTime testEnd = null;
@@ -713,7 +800,7 @@ public class SchedController implements Initializable {
 
 
     /** Populates the customers input fields with whatever row has been clicked on in the table. */
-    public void populateCustSelected() {
+    private void populateCustSelected() {
         Cust custSelected = getCustSelected();
         if (custSelected == null) { return; }
         unredCustFields();
@@ -800,7 +887,7 @@ public class SchedController implements Initializable {
      *
      * @return true if edits are detected, false if not.
      * */
-    public boolean checkCustChanges() {
+    private boolean checkCustChanges() {
         Cust custSelected = getCustSelected();
         if (custSelected == null) { return false; }
         boolean edited = false;
@@ -875,7 +962,7 @@ public class SchedController implements Initializable {
      *
      * @param cust
      * */
-    public void setCustSelection(Cust cust) {
+    private void setCustSelection(Cust cust) {
         for (int j = 0; j < getAllCusts().size(); j++) {
             if (cust == getAllCusts().get(j)) {
                 custs.getSelectionModel().select(j);
@@ -892,7 +979,7 @@ public class SchedController implements Initializable {
      *
      * @return true if yes, false if no.
      * */
-    public boolean discardCustChanges() {
+    private boolean discardCustChanges() {
         boolean changed = checkCustChanges();
         if ( changed == true ) {
             Alert conf = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you wish to discard your changes?", ButtonType.NO, ButtonType.YES);
@@ -906,7 +993,7 @@ public class SchedController implements Initializable {
      *
      * @return true if any fields are empty, false if none are empty.
      * */
-    public boolean areCustFieldsEmpty() {
+    private boolean areCustFieldsEmpty() {
         boolean incomplete = false;
         if ( custNameField.getText().isEmpty() ) { custNameField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { custNameField.setStyle(null); }
         if ( phoneField.getText().isEmpty() ) { phoneField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { phoneField.setStyle(null); }
@@ -918,7 +1005,7 @@ public class SchedController implements Initializable {
     }
 
     /** Makes all input fields no longer have a red border around them. */
-    public void unredCustFields() {
+    private void unredCustFields() {
         custNameField.setStyle(null);
         phoneField.setStyle(null);
         addrField.setStyle(null);
@@ -930,7 +1017,7 @@ public class SchedController implements Initializable {
     }
 
     /** Changes ID text of country selected, and populates territories combobox for selected country. */
-    public void updateTerritoriesField() {
+    private void updateTerritoriesField() {
         if ((countryField.getValue() == null) || (countryField.getValue().toString() == "")) return;
         if (countryField.getValue().equals("U.S")) {
             territoryField.setItems(FirstLD.usTerritories);
@@ -947,9 +1034,159 @@ public class SchedController implements Initializable {
     }
 
     /** Changes ID text of territory selected. */
-    public void updateTerritoryID() {
+    private void updateTerritoryID() {
         if (( territoryField.getValue() == null ) || ( territoryField.getValue().toString() == "")) return;
         divIDField.setText( String.valueOf(FirstLD.convertToID(territoryField.getValue().toString())));
+    }
+
+
+    /** Resets all search fields in the appointments tab. */
+    @FXML
+    private void resetApptSearch() {
+        titleSearch.setText("");
+        descSearch.setText("");
+        typeSearch.setText("");
+        locSearch.setText("");
+        startSearch.setText("");
+        endSearch.setText("");
+        userSearch.setText("");
+        custSearch.setText("");
+        contactSearch.setText("");
+        appts.setItems(getAllAppts());
+        appts.refresh();
+    }
+
+    /** Resets all search fields in the customerstab. */
+    @FXML
+    private void resetCustSearch() {
+        custNameSearch.setText("");
+        phoneSearch.setText("");
+        addrSearch.setText("");
+        zipSearch.setText("");
+        territorySearch.setText("");
+        countrySearch.setText("");
+        custs.setItems(getAllCusts());
+        custs.refresh();
+    }
+
+    /** Searches all appointment titles for text entered in the title search field. */
+    @FXML
+    private void titleSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getDesc().toLowerCase().contains(titleSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment descriptions for text entered in the description search field. */
+    @FXML
+    private void descSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getDesc().toLowerCase().contains(descSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment types for text entered in the type search field. */
+    @FXML
+    private void typeSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getType().toLowerCase().contains(typeSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment locations for text entered in the location search field. */
+    @FXML
+    private void locSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getLoc().toLowerCase().contains(locSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment start times for text entered in the start time search field. */
+    @FXML
+    private void startSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getStart().toString().toLowerCase().contains(startSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment end times for text entered in the end time search field. */
+    @FXML
+    private void endSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getEnd().toString().toLowerCase().contains(endSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment users for text entered in the user search field. */
+    @FXML
+    private void userSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getUser().toLowerCase().contains(userSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment customers for text entered in the customer search field. */
+    @FXML
+    private void custSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getCust().toLowerCase().contains(custSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all appointment contacts for text entered in the contact search field. */
+    @FXML
+    private void contactSearch () {
+        FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
+        searched.setPredicate(Appt -> Appt.getContact().toLowerCase().contains(contactSearch.getText().toLowerCase()));
+        appts.setItems(searched);
+    }
+
+    /** Searches all customer names for text entered in the name search field. */
+    @FXML
+    private void custNameSearch () {
+        FilteredList<Cust> searched = new FilteredList<>(getAllCusts());
+        searched.setPredicate(Cust -> Cust.getCustName().toLowerCase().contains(custNameSearch.getText().toLowerCase()));
+        custs.setItems(searched);
+    }
+
+    /** Searches all customer phone numbers for text entered in the phone search field. */
+    @FXML
+    private void phoneSearch () {
+        FilteredList<Cust> searched = new FilteredList<>(getAllCusts());
+        searched.setPredicate(Cust -> Cust.getPhone().toLowerCase().contains(phoneSearch.getText().toLowerCase()));
+        custs.setItems(searched);
+    }
+
+    /** Searches all customer addresses for text entered in the address search field. */
+    @FXML
+    private void addrSearch () {
+        FilteredList<Cust> searched = new FilteredList<>(getAllCusts());
+        searched.setPredicate(Cust -> Cust.getAddr().toLowerCase().contains(addrSearch.getText().toLowerCase()));
+        custs.setItems(searched);
+    }
+
+    /** Searches all customer zip codes for text entered in the zip code search field. */
+    @FXML
+    private void zipSearch () {
+        FilteredList<Cust> searched = new FilteredList<>(getAllCusts());
+        searched.setPredicate(Cust -> Cust.getZip().toLowerCase().contains(zipSearch.getText().toLowerCase()));
+        custs.setItems(searched);
+    }
+
+    /** Searches all customer territories for text entered in the territory search field. */
+    @FXML
+    private void territorySearch () {
+        FilteredList<Cust> searched = new FilteredList<>(getAllCusts());
+        searched.setPredicate(Cust -> Cust.getTerritory().toLowerCase().contains(territorySearch.getText().toLowerCase()));
+        custs.setItems(searched);
+    }
+
+    /** Searches all customer countries for text entered in the country search field. */
+    @FXML
+    private void countrySearch () {
+        FilteredList<Cust> searched = new FilteredList<>(getAllCusts());
+        searched.setPredicate(Cust -> Cust.getCountry().toLowerCase().contains(countrySearch.getText().toLowerCase()));
+        custs.setItems(searched);
     }
 
 }

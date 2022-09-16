@@ -308,7 +308,7 @@ public abstract class JDBC {
      * @param ldt
      * @return
      */
-    public static LocalDateTime convertToUTC (LocalDateTime ldt) {
+    private static LocalDateTime convertToUTC (LocalDateTime ldt) {
         LocalDateTime utcLDT = ldt.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC")).toLocalDateTime();
         return utcLDT;
     }
@@ -318,7 +318,7 @@ public abstract class JDBC {
      * @param ldt
      * @return
      */
-    public static LocalDateTime convertFromUTC (LocalDateTime ldt) {
+    private static LocalDateTime convertFromUTC (LocalDateTime ldt) {
         LocalDateTime localLDT = ldt.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
         return localLDT;
     }
@@ -328,7 +328,7 @@ public abstract class JDBC {
      * @param ldt
      * @return
      */
-    public static LocalDateTime convertToEST (LocalDateTime ldt) {
+    private static LocalDateTime convertToEST (LocalDateTime ldt) {
         LocalDateTime estLDT = ldt.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("America/New_York")).toLocalDateTime();
         return estLDT;
     }
@@ -338,7 +338,7 @@ public abstract class JDBC {
      * @param ldt
      * @return
      */
-    public static LocalDateTime convertFromEST (LocalDateTime ldt) {
+    private static LocalDateTime convertFromEST (LocalDateTime ldt) {
         LocalDateTime localLDT = ldt.atZone(ZoneId.of("America/New_York")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
         return localLDT;
     }

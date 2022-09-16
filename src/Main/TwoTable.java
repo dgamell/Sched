@@ -10,11 +10,11 @@ import static Main.Cust.allCusts;
 
 /** Defines structure of the "TwoTable" table used in three areas on the right side of the reports tab. */
 public class TwoTable {
-    private SimpleStringProperty name;
+    public SimpleStringProperty name;
     public String getName () { return name.get(); }
     public void setName (String str) { this.name = new SimpleStringProperty(str); }
 
-    private SimpleIntegerProperty total;
+    public SimpleIntegerProperty total;
     public Integer getTotal() { return total.get(); }
     public void setTotal(int i) { this.total = new SimpleIntegerProperty(i); }
 
@@ -23,6 +23,9 @@ public class TwoTable {
         this.name = new SimpleStringProperty(name);
         this.total = new SimpleIntegerProperty(total);
     }
+
+    /** TwoTable default constructor. */
+    public TwoTable() { }
 
 
     private static ObservableList<TwoTable> allCustomersTT = FXCollections.observableArrayList();

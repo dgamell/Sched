@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
      * @throws Exception
      * */
     @FXML
-    public void login() throws Exception {
+    private void login() throws Exception {
             boolean incomplete = false;
             if ( userField.getText().isEmpty() ) { userField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { userField.setStyle(null); }
             if ( passField.getText().isEmpty() ) { passField.setStyle("-fx-border-color: #FF0000;"); incomplete = true; } else { passField.setStyle(null); }
@@ -107,7 +107,7 @@ public class LoginController implements Initializable {
      * @throws Exception
      * */
     @FXML
-    public void exitLogin(ActionEvent event) throws Exception {
+    private void exitLogin(ActionEvent event) throws Exception {
         System.exit(0);
     }
 
@@ -115,7 +115,7 @@ public class LoginController implements Initializable {
      *
      * @param user int
      * */
-    public void checkFifteen(int user) {
+    private void checkFifteen(int user) {
         ObservableList<Appt> all = getAllAppts();
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime testStart = null;
@@ -147,7 +147,7 @@ public class LoginController implements Initializable {
     }
 
     /** Changes the login screen between english and french languages only. */
-    public void language() {
+    private void language() {
         ResourceBundle rb = ResourceBundle.getBundle("login", Locale.getDefault());
         if (l == "en_US") { rb = ResourceBundle.getBundle("login_en"); }
         if (l == "fr_FR") { rb = ResourceBundle.getBundle("login_fr"); }

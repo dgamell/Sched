@@ -20,9 +20,9 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="appts" layoutX="14.0" layoutY="14.0" prefHeight="542.0" prefWidth="1000.0">
+                        <TableView fx:id="appts" layoutX="14.0" layoutY="39.0" prefHeight="518.0" prefWidth="1000.0">
                             <columns>
-                                <TableColumn id="apptID" fx:id="apptID" prefWidth="30.0" text="ID" />
+                                <TableColumn id="apptID" fx:id="apptID" prefWidth="44.0" text="ID" />
                                 <TableColumn id="title" fx:id="title" prefWidth="100.0" text="Title" />
                                 <TableColumn id="desc" fx:id="desc" prefWidth="100.0" text="Description" />
                                 <TableColumn id="type" fx:id="type" prefWidth="100.0" text="Type" />
@@ -31,7 +31,7 @@
                                 <TableColumn id="end" fx:id="end" prefWidth="110.0" text="End" />
                                 <TableColumn id="userID" fx:id="user" prefWidth="65.0" text="User" />
                         <TableColumn id="apptID" fx:id="userFKID" prefWidth="30.0" text="ID" />
-                                <TableColumn id="custID" fx:id="cust" prefWidth="125.0" text="Customer" />
+                                <TableColumn id="custID" fx:id="cust" prefWidth="110.0" text="Customer" />
                         <TableColumn id="apptID" fx:id="custFKID" prefWidth="30.0" text="ID" />
                                 <TableColumn id="contactID" fx:id="contact" prefWidth="100.0" text="Contact" />
                             </columns>
@@ -167,6 +167,16 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
+                  <Button fx:id="resetApptSearch" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#resetApptSearch" prefWidth="45.0" text="Reset" />
+                  <TextField fx:id="titleSearch" layoutX="59.0" layoutY="14.0" prefWidth="100.0" promptText="Search..." />
+                  <TextField fx:id="descSearch" layoutX="159.0" layoutY="14.0" prefWidth="100.0" promptText="Search..." />
+                  <TextField fx:id="typeSearch" layoutX="259.0" layoutY="14.0" prefWidth="100.0" promptText="Search..." />
+                  <TextField fx:id="locSearch" layoutX="359.0" layoutY="14.0" prefWidth="100.0" promptText="Search..." />
+                  <TextField fx:id="startSearch" layoutX="459.0" layoutY="14.0" prefWidth="110.0" promptText="Search..." />
+                  <TextField fx:id="endSearch" layoutX="569.0" layoutY="14.0" prefWidth="110.0" promptText="Search..." />
+                  <TextField fx:id="userSearch" layoutX="679.0" layoutY="14.0" prefWidth="95.0" promptText="Search..." />
+                  <TextField fx:id="custSearch" layoutX="774.0" layoutY="14.0" prefWidth="140.0" promptText="Search..." />
+                  <TextField fx:id="contactSearch" layoutX="914.0" layoutY="14.0" prefWidth="100.0" promptText="Search..." />
                     </children></AnchorPane>
             </content>
         </Tab>
@@ -174,16 +184,16 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="custs" layoutX="14.0" layoutY="14.0" prefHeight="542.0" prefWidth="1000.0">
+                        <TableView fx:id="custs" layoutX="14.0" layoutY="39.0" prefHeight="518.0" prefWidth="1000.0">
                             <columns>
-                                <TableColumn id="cust" fx:id="custID" prefWidth="50.0" text="ID" />
+                                <TableColumn id="cust" fx:id="custID" prefWidth="44.0" text="ID" />
                                 <TableColumn id="custName" fx:id="custName" prefWidth="125.0" text="Customer" />
                                 <TableColumn id="phone" fx:id="phone" prefWidth="125.0" text="Phone" />
                                 <TableColumn id="addr" fx:id="addr" prefWidth="200.0" text="Address" />
-                                <TableColumn id="zip" fx:id="zip" prefWidth="75.0" text="Zip Code" />
-                                <TableColumn id="divID" fx:id="territory" prefWidth="125.0" text="Territory" />
-                                <TableColumn id="country" fx:id="country" prefWidth="125.0" text="Country" />
+                                <TableColumn id="zip" fx:id="zip" prefWidth="85.0" text="Zip Code" />
+                                <TableColumn id="divID" fx:id="territory" prefWidth="135.0" text="Territory" />
                         <TableColumn fx:id="divID" prefWidth="75.0" text="Division ID" />
+                                <TableColumn id="country" fx:id="country" prefWidth="135.0" text="Country" />
                         <TableColumn fx:id="countryID" prefWidth="75.0" text="Country ID" />
                             </columns>
                         </TableView>
@@ -259,6 +269,13 @@
                   </Label>
                   <ComboBox fx:id="countryField" layoutX="1102.0" layoutY="182.0" prefHeight="25.0" prefWidth="150.0" />
                   <ComboBox fx:id="territoryField" layoutX="1102.0" layoutY="214.0" prefHeight="25.0" prefWidth="150.0" />
+                  <Button fx:id="resetCustSearch" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#resetCustSearch" prefWidth="45.0" text="Reset" />
+                  <TextField fx:id="custNameSearch" layoutX="59.0" layoutY="14.0" prefWidth="125.0" promptText="Search..." />
+                  <TextField fx:id="phoneSearch" layoutX="184.0" layoutY="14.0" prefWidth="125.0" promptText="Search..." />
+                  <TextField fx:id="addrSearch" layoutX="309.0" layoutY="14.0" prefWidth="200.0" promptText="Search..." />
+                  <TextField fx:id="zipSearch" layoutX="509.0" layoutY="14.0" prefWidth="85.0" promptText="Search..." />
+                  <TextField fx:id="territorySearch" layoutX="594.0" layoutY="14.0" prefWidth="210.0" promptText="Search..." />
+                  <TextField fx:id="countrySearch" layoutX="804.0" layoutY="14.0" prefWidth="210.0" promptText="Search..." />
                     </children>
                 </AnchorPane>
             </content>
