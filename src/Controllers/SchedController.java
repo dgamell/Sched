@@ -1071,7 +1071,7 @@ public class SchedController implements Initializable {
     @FXML
     private void titleSearch () {
         FilteredList<Appt> searched = new FilteredList<>(getAllAppts());
-        searched.setPredicate(Appt -> Appt.getDesc().toLowerCase().contains(titleSearch.getText().toLowerCase()));
+        searched.setPredicate(Appt -> Appt.getTitle().toLowerCase().contains(titleSearch.getText().toLowerCase()));
         appts.setItems(searched);
     }
 
